@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Network Training Visualizer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 Neural Network Training Visualizer</h1>
+        <p class="subtitle">Watch a 2-layer neural network learn in real-time!</p>
+        
+        <div class="controls">
+            <button id="startBtn" class="btn btn-primary">▶️ Start Training</button>
+            <button id="pauseBtn" class="btn btn-secondary" disabled>⏸️ Pause</button>
+        </div>
+
+        <div class="metrics">
+            <div class="metric-box">
+                <h3>Iteration</h3>
+                <p id="iteration">0</p>
+            </div>
+            <div class="metric-box">
+                <h3>Loss</h3>
+                <p id="loss">0.0000</p>
+            </div>
+            <div class="metric-box">
+                <h3>Accuracy</h3>
+                <p id="accuracy">0.0%</p>
+            </div>
+            <div class="metric-box">
+                <h3>Phase</h3>
+                <p id="phase">Ready</p>
+            </div>
+        </div>
+
+        <div class="visualization">
+            <div id="network-canvas"></div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="color-box positive-weight"></div>
+                <span>Positive Weight</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box negative-weight"></div>
+                <span>Negative Weight</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box strong-activation"></div>
+                <span>High Activation</span>
+            </div>
+        </div>
+
+        <div class="explanation">
+            <h3>How to Read the Visualization:</h3>
+            <ul>
+                <li><strong>Neurons</strong> brighten based on activation value (0 to 1)</li>
+                <li><strong>Connections</strong> are blue (positive weight) or red (negative)</li>
+                <li><strong>Line thickness</strong> shows weight magnitude</li>
+                <li><strong>Green/Red dot</strong> shows data/gradient flow direction</li>
+                <li><strong>Highlighted output</strong> shows the network's current prediction</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='network_viz.js') }}"></script>
+</body>
+</html>
