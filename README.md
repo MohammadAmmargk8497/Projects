@@ -1,6 +1,7 @@
 # Neural Network from Scratch with Real-Time Visualization
 
 This project provides a hands-on implementation of a simple two-layer neural network from scratch using NumPy. It also includes a web-based visualization that shows the network learning in real-time. The neural network is trained on the MNIST dataset of handwritten digits.
+![NN_scratch](https://github.com/user-attachments/assets/c3349f9b-b2ef-4f20-99ff-eb6edaa62a9d)
 
 ## How it Works
 
